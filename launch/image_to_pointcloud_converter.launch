@@ -1,0 +1,10 @@
+<launch>
+  <node pkg="my_package" type="image_to_pointcloud_converter" name="image_to_pointcloud_converter" output="screen">
+    <param name="image_topic" value="/usb_cam/image_raw"/>
+    <param name="pointcloud_topic" value="/spatio_temporal_voxel_layer/point_cloud"/>
+    <param name="fx" value="274.6069129213586"/>
+    <param name="fy" value="276.31161814332177"/>
+    <param name="cx" value="311.5795188709375"/>
+    <param name="cy" value="224.33402263099595"/>
+  </node>
+</launch>

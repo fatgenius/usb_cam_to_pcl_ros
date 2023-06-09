@@ -1,0 +1,53 @@
+graph LR
+
+subgraph 初始化
+    A(初始化ROS节点和节点句柄)
+    B(设置相机内参矩阵)
+end
+
+subgraph 订阅图像话题
+    C(订阅相机图像话题)
+    D(指定回调函数imageCallback)
+end
+
+subgraph 创建点云发布器
+    E(创建点云发布器)
+end
+
+subgraph 主循环
+    F(进入ROS主循环)
+end
+
+subgraph imageCallback
+    G(将ROS图像消息转换为OpenCV格式)
+    H(将图像转换为灰度图像)
+    I(创建空的点云对象pointCloud)
+    J(遍历灰度图像像素)
+    K(获取像素的灰度值)
+    L(根据灰度值计算深度)
+    M(根据像素位置和深度计算点的三维坐标)
+    N(将点云数据转换为ROS消息)
+    O(创建TF监听器)
+    P(获取地图到相机的变换)
+    Q(对点云进行坐标系变换)
+    R(将转换后的点云数据填入ROS消息)
+    S(设置ROS消息的元数据)
+    T(发布点云消息)
+end
+
+A --> B
+C --> D
+E --> F
+G --> H
+H --> I
+I --> J
+J --> K
+K --> L
+L --> M
+M --> N
+N --> O
+O --> P
+P --> Q
+Q --> R
+R --> S
+S --> T
